@@ -1,0 +1,18 @@
+<% require "yaml" %>
+<% require_relative "../.admin/partial_methods" %>
+<% @data = get_data %>
+
+
+      <footer class="row">
+        <div class="col-xs-12 hr-container">
+          <hr class="col-xs-12">
+        </div>
+        <div class="col-xs-6">
+          <div class="github-link col-xs-5 col-xs-offset-1">
+            <a>
+              <img src="https://github.com/favicon.ico" class="git-logo"></img>
+              <%= @data[:githubusername]%>
+            </a>
+          </div>
+        </div>
+      </footer>

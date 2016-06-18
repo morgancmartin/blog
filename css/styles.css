@@ -671,8 +671,55 @@
   font-weight: normal;
   font-style: normal;
 }
-.logo {
-  width: 25%;
-  margin-left: 8.33333333%;
+/*****************
+******Header******
+******************/
+.accent-bar {
+  height: 5px;
+  background-color: #28284F;
+}
+.nav-item {
+  height: 60px;
+  line-height: 60px;
   font-family: "Oswald";
+  font-size: 26px;
+}
+.nav-item a {
+  color: #28284F;
+}
+.hr-container {
+  padding: 0;
+}
+.hr-container hr {
+  margin-top: 0px;
+}
+.github-link {
+  font-family: "Oswald";
+  height: 30px;
+  font-size: 22px;
+}
+.github-link img {
+  width: 20px;
+  height: 20px;
+}
+.github-link a {
+  color: #28284F;
+}
+html,
+body {
+  height: 100%;
+}
+#holder {
+  min-height: 100%;
+  position: relative;
+}
+#body {
+  padding-bottom: 100px;
+}
+footer {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
