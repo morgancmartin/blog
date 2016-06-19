@@ -667,7 +667,13 @@
 }
 @font-face {
   font-family: "Oswald";
-  src: url('../fonts/Oswald/Oswald-Regular.ttf') format('truetype'), url('../fonts/Oswald/Oswald-Light.ttf'), url('../fonts/Oswald/Oswald-Bold.ttf');
+  src: url("../fonts/Oswald/Oswald-Regular.ttf") format("truetype"), url("../fonts/Oswald/Oswald-Light.ttf"), url("../fonts/Oswald/Oswald-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Crimson Text";
+  src: url("../fonts/Crimson_Text/CrimsonText-Roman.ttf") format("truetype"), url("../fonts/Crimson_Text/CrimsonText-Italic.ttf"), url("../fonts/Crimson_Text/CrimsonText-BoldItalic.ttf"), url("../fonts/Crimson_Text/CrimsonText-Bold.ttf"), url("../fonts/Crimson_Text/CrimsonText-SemiboldItalic.ttf"), url("../fonts/Crimson_Text/CrimsonText-Semibold.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -715,6 +721,14 @@ body {
 }
 #body {
   padding-bottom: 100px;
+  font-family: "Crimson Text";
+}
+#body h1,
+#body h2 {
+  font-family: "Oswald";
+}
+#body h2 {
+  display: none;
 }
 footer {
   height: 100px;
