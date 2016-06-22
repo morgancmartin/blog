@@ -1,0 +1,47 @@
+<% require "yaml" %>
+<% require_relative "../.admin/methods" %>
+<% @data = get_data %>
+<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
+<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <%= main_folder_stylesheet_locs %>
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      <%= @header %>
+      <div id="body" class="row">
+        <div class="col-xs-10 col-xs-offset-2">
+          <section class="archives-section">
+            <% last_iter_year = Time.now.year + 1%>
+            <% @data[:posts].each do |post| %>
+              <% current_year = post[:year].to_i %>
+              <h1 class="year-header"><%=archives_year_header current_year, last_iter_year%></h1>
+              <div class="row">
+                <div class="col-xs-7 archive-entry">
+                  <p class="col-xs-2"><%=post[:formatteddate]%></p><%=post[:linked_title]%> <!-- would have made more sense as a list...-->
+                </div>
+              </div>
+              <% last_iter_year = current_year %>
+            <% end %>
+          </section>
+        </div>
+      </div>
+      <%= @footer %>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

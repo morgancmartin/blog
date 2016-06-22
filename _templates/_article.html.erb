@@ -1,0 +1,35 @@
+<% require "yaml" %>
+<% require_relative "../.admin/methods" %>
+<% @data = get_data %>
+<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
+<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <%= get_stylesheet_loc @data[:sub_file] %>
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      <%= @header %>
+      <div id="body" class="row">
+        <div class="col-xs-7 col-xs-offset-3">
+          <section><%=@data[:post][:filecontents]%></section>
+        </div>
+      </div>
+      <%= @footer %>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

@@ -4,6 +4,10 @@
 @import "variables";
 @import "mixins";
 
+a:hover {
+  text-decoration: none;
+}
+
 /*****************
 ******Header******
 ******************/
@@ -59,6 +63,42 @@ html, body {
   }
   h2 {
     display: none;
+  }
+  p {
+    font-size: 22px;
+    color: black;
+  }
+  .archives-section {
+    .year-header {
+      .ffCrimson;
+      font-size: 32px;
+      font-weight: 500;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-top: 0px !important;
+    }
+  }
+
+  .archive-entry{
+    * {
+      display: inline-block;
+    }
+    a {
+      font-size: 22px;
+    }
+  }
+  .aboutme-section {
+    h1 {
+      .ffCrimson;
+    }
+  }
+  .contact-section {
+    h1 {
+      .ffCrimson;
+    }
+    a {
+      font-size: 18px;
+    }
   }
 }
 

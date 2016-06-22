@@ -1,0 +1,50 @@
+<% require "yaml" %>
+<% require_relative "../.admin/methods" %>
+<% @data = get_data %>
+<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
+<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <%= main_folder_stylesheet_locs %>
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <link rel="stylesheet" href="fonts/font-awesome-4.6.3/css/font-awesome.min.css">
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      <%= @header %>
+      <div id="body" class="row">
+        <div class="col-xs-10 col-xs-offset-2">
+          <section class="aboutme-section">
+            <h1>a little about me:</h1>
+            <p>I am a fullstack web developer</p>
+            <p>I am currently looking for employment in the SF Bay Area</p>
+            <p>I think Lisp is a really cool languageand I want to write my own sometime</p>
+            <p>I want to move into machine learning and data science someday</p>
+          </section>
+          <section class="contact-section">
+            <h1>let's get in touch:</h1>
+            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+            <a href="<%= @data[:twitterlink] %>">@<%=@data[:twittername]%></a>
+            <br>
+            <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+            <a href="mailto:<%= @data[:email]%>"><%= @data[:email]%></a>
+          </section>
+        </div>
+      </div>
+      <%= @footer %>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

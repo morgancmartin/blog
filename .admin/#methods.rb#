@@ -268,7 +268,7 @@ def construct_archives
 end
 
 def get_aboutme_path sub_file
-  sub_file ? "../aboutme.html" : "aboutme.html"
+  sub_file ? "../aboutme.html"
 end
 
 def create_aboutme

@@ -677,6 +677,9 @@
   font-weight: normal;
   font-style: normal;
 }
+a:hover {
+  text-decoration: none;
+}
 /*****************
 ******Header******
 ******************/
@@ -729,6 +732,33 @@ body {
 }
 #body h2 {
   display: none;
+}
+#body p {
+  font-size: 22px;
+  color: black;
+}
+#body .archives-section .year-header {
+  font-family: "Crimson Text";
+  font-size: 32px;
+  font-weight: 500;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px !important;
+}
+#body .archive-entry * {
+  display: inline-block;
+}
+#body .archive-entry a {
+  font-size: 22px;
+}
+#body .aboutme-section h1 {
+  font-family: "Crimson Text";
+}
+#body .contact-section h1 {
+  font-family: "Crimson Text";
+}
+#body .contact-section a {
+  font-size: 18px;
 }
 footer {
   height: 100px;

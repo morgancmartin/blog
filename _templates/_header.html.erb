@@ -6,16 +6,16 @@
         <div class="accent-bar col-xs-12"></div>
         <div class="col-xs-6">
           <div class="nav-item col-xs-11 col-xs-offset-1">
-            <a href=" <%= @main_page_link %> "><%= @data[:firstname] %></a>
+            <a href=" <%= @data[:main_site] %> "><%= @data[:firstname] %></a>
           </div>
         </div>
         <div class="col-xs-6">
           <div class="col-xs-6 col-xs-offset-5">
             <div class="nav-item col-xs-3 col-xs-offset-5">
-              <a href=" <%= @data[:archives_link] %> ">Archives</a>
+              <a href=" <%= get_archives_path @data[:sub_file] %> ">Archives</a>
             </div>
             <div class="nav-item col-xs-3 col-xs-offset-1">
-              <a href=" <%= @data[:about_link] %>">About</a>
+              <a href=" <%= get_aboutme_path @data[:sub_file] %>">About</a>
             </div>
           </div>
         </div>
