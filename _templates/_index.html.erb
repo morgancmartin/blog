@@ -27,13 +27,13 @@
       <div id="body" class="row">
         <div class="col-xs-7 col-xs-offset-3">
           <% @posts.each do |post| %>
-            <section><%=post%></section>
+            <section class="article-preview"><%=post%></section>
           <% end %>
         </div>
         <div class="col-xs-4 col-xs-offset-4">
           <nav class="col-xs-8 col-xs-offset-2">
             <ul class="pagination">
-              <li class="page-item disabled">
+              <li class="page-item">
                 <a class="page-link" href="<%=pagination_href(@data[:folder_num], "previous", @data[:indextotal])%>" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                   <span class="sr-only">Previous</span>
@@ -50,8 +50,7 @@
                 </a>
               </li>
               <li class="<%=pagination_list_item_class @data[:folder_num], 3%>">
-                <a class="page-link" href="<%=pagination_href @data[:folder_num], 3, @data[:indextotal]%>">3
-                  <%=sr_span @data[:folder_num], 3%>
+                   <%=sr_span @data[:folder_num], 3%>
                 </a>
               </li>
               <li class="<%=pagination_list_item_class @data[:folder_num], 4%>">

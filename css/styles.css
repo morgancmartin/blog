@@ -702,40 +702,60 @@ a:hover {
 .hr-container hr {
   margin-top: 0px;
 }
-.github-link {
-  font-family: "Oswald";
-  height: 30px;
-  font-size: 22px;
-}
-.github-link img {
-  width: 20px;
-  height: 20px;
-}
-.github-link a {
-  color: #28284F;
-}
+/*********
+***body***
+**********/
+/*used in conjunction with #holder*/
 html,
 body {
   height: 100%;
 }
+/*holder for making footer a set height*/
 #holder {
   min-height: 100%;
   position: relative;
 }
+/*body container used in conjunction with #holder*/
 #body {
   padding-bottom: 100px;
-  font-family: "Crimson Text";
+  color: black;
+  /*index page article-previews*/
+  /*article-page article containers*/
+  /*paragraphs on any page*/
+  /*archives-page archives-section*/
+  /*archives page archives-entry*/
+  /*about page aboutme section*/
+  /*about page contact-section*/
 }
-#body h1,
-#body h2 {
+#body .date {
+  color: #3d3d4c;
+  font-size: 18px;
+}
+#body .article-preview h1,
+#body .article-preview h2 {
   font-family: "Oswald";
 }
-#body h2 {
+#body .article-preview h2 {
   display: none;
 }
+#body .article-container h1,
+#body .article-container h2 {
+  display: block;
+  font-family: "Oswald";
+}
 #body p {
+  font-family: "Crimson Text";
   font-size: 22px;
   color: black;
+}
+#body li {
+  color: #3d3d4c;
+}
+#body .quote {
+  border-left: 3px solid #E8E8E8;
+  padding-left: 10px;
+  color: #3d3d4c;
+  font-style: italic;
 }
 #body .archives-section .year-header {
   font-family: "Crimson Text";
@@ -760,10 +780,25 @@ body {
 #body .contact-section a {
   font-size: 18px;
 }
+/***********
+***footer***
+***********/
 footer {
   height: 100px;
   width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
+}
+footer .github-link {
+  font-family: "Oswald";
+  height: 30px;
+  font-size: 22px;
+}
+footer .github-link img {
+  width: 20px;
+  height: 20px;
+}
+footer .github-link a {
+  color: #28284F;
 }

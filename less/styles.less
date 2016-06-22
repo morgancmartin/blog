@@ -33,41 +33,61 @@ a:hover {
   }
 }
 
-.github-link {
-  .ffOswald;
-  height: 30px;
-  font-size: 22px;
-  img {
-    width: 20px;
-    height: 20px;
-  }
-  a {
-    color: @primary-color;
-  }
-}
+/*********
+***body***
+**********/
 
+/*used in conjunction with #holder*/
 html, body {
   height: 100%;
 }
 
+/*holder for making footer a set height*/
 #holder {
   min-height: 100%;
   position: relative;
 }
 
+/*body container used in conjunction with #holder*/
 #body{
   padding-bottom: 100px;
-  .ffCrimson;
-  h1, h2 {
-    .ffOswald;
+  color: black;
+  .date {
+    color: @faded-primary;
+    font-size: 18px;
   }
-  h2 {
-    display: none;
+  /*index page article-previews*/
+  .article-preview {
+    h1, h2 {
+      .ffOswald;
+    }
+    h2 {
+      display: none;
+    }
   }
+  /*article-page article containers*/
+  .article-container {
+    h1, h2 {
+      display: block;
+      .ffOswald;
+    }
+  }
+  /*paragraphs on any page*/
   p {
+    .ffCrimson;
     font-size: 22px;
     color: black;
   }
+  li {
+    color: @faded-primary;
+  }
+  .quote {
+    border-left: 3px solid @light-accent;
+    padding-left: 10px;
+    color: @faded-primary;
+    font-style: italic;
+  }
+  /*archives-page archives-section*/
   .archives-section {
     .year-header {
       .ffCrimson;
@@ -78,7 +98,7 @@ html, body {
       margin-top: 0px !important;
     }
   }
-
+  /*archives page archives-entry*/
   .archive-entry{
     * {
       display: inline-block;
@@ -87,11 +107,13 @@ html, body {
       font-size: 22px;
     }
   }
+  /*about page aboutme section*/
   .aboutme-section {
     h1 {
       .ffCrimson;
     }
   }
+  /*about page contact-section*/
   .contact-section {
     h1 {
       .ffCrimson;
@@ -102,10 +124,25 @@ html, body {
   }
 }
 
+/***********
+***footer***
+***********/
 footer {
   height: 100px;
   width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
+  .github-link {
+    .ffOswald;
+    height: 30px;
+    font-size: 22px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    a {
+      color: @primary-color;
+    }
+  }
 }

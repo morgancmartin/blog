@@ -1,20 +1,24 @@
 @vars = {}
 
-def clean_up options = {page_folder: false, articles_folder: false, archives_file: false}
-  defaults = %w[. .. .git .methods.rb bootstrap compile.rb css posts
-                defaults.yml fonts index.html less README.md _templates
-                methods.rb partial_methods.rb aboutme.html]
+def default_files
+  %w[. .. .git .methods.rb bootstrap compile.rb css posts
+     defaults.yml fonts index.html less README.md _templates
+     methods.rb partial_methods.rb aboutme.html .admin .compile.rb
+     .git]
+end
+
+def clean_up options = {}
+  optionals = %w[articles archives.html]
   Dir.foreach(".") do |item|
-    next if defaults.include?(item) or item[0] == "."
-    next if item[0..7] == "articles" && (options[:articles_folder] == false)
-    next if item[0..3] == "page" && (options[:page_folder] == false)
-    next if item[0..7] == "archives" && (options[:archives_file] == false)
+    next if default_files.include?(item)
+    next if item[0..3] == "page" && !options[:page_folder]
+    next if optionals.include?(item) && !options[item]
     system "rm -rf #{item}"
   end
-  Dir.foreach(".admin/") do |item|
-    next if defaults.include?(item)
-    system "rm -rf .admin/#{item}"
-  end
+end
+
+def pre_compile_clean_options
+  options = {page_folder: true, "articles" => true, "archives.html"=> true}
 end
 
 def find_post_content post, match, close_length
@@ -132,6 +136,7 @@ def pagination_href index_number, page, num_of_indices
   return pagination_href(index_number, index_number + 1, num_of_indices) if page == "next"
   return "../index.html" if page == 1 and index_number > page
   return "page#{page}/index.html" if index_number == 1 and page <= num_of_indices
+  return "page#{num_of_indices}/index.html" if index_number == 1 and page > num_of_indices
   return "../page#{page}/index.html" if page <= num_of_indices
   return "../page#{num_of_indices}/index.html"
 end
