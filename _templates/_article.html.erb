@@ -1,6 +1,6 @@
 <% require "yaml" %>
 <% require_relative "../.admin/methods" %>
-<% @data = get_data %>
+<% @data = read_data %>
 <% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
 <% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
@@ -22,7 +22,7 @@
       <%= @header %>
       <div id="body" class="row">
         <div class="col-xs-7 col-xs-offset-3">
-          <section class="article-container"><%=@data[:post][:filecontents]%></section>
+          <section class="article-container"><%=@data[:post].file_contents%></section>
         </div>
       </div>
       <%= @footer %>

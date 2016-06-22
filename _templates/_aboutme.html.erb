@@ -1,6 +1,6 @@
 <% require "yaml" %>
 <% require_relative "../.admin/methods" %>
-<% @data = get_data %>
+<% @data = read_data %>
 <% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
 <% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Morgan</title>
     <!-- Bootstrap -->
-    <%= main_folder_stylesheet_locs %>
+    <%= main_file_stylesheet_locs %>
     <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
     <link rel="stylesheet" href="fonts/font-awesome-4.6.3/css/font-awesome.min.css">
     <!-- removed html5 shim for IE cuz IE needs to die-->

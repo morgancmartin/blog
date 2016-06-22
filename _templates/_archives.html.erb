@@ -1,6 +1,6 @@
 <% require "yaml" %>
 <% require_relative "../.admin/methods" %>
-<% @data = get_data %>
+<% @data = read_data %>
 <% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
 <% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Morgan</title>
     <!-- Bootstrap -->
-    <%= main_folder_stylesheet_locs %>
+    <%= main_file_stylesheet_locs %>
     <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
     <!-- removed html5 shim for IE cuz IE needs to die-->
   </head>
@@ -25,11 +25,11 @@
           <section class="archives-section">
             <% last_iter_year = Time.now.year + 1%>
             <% @data[:posts].each do |post| %>
-              <% current_year = post[:year].to_i %>
+              <% current_year = post.year %>
               <h1 class="year-header"><%=archives_year_header current_year, last_iter_year%></h1>
               <div class="row">
                 <div class="col-xs-7 archive-entry">
-                  <p class="col-xs-2"><%=post[:formatteddate]%></p><%=post[:linked_title]%> <!-- would have made more sense as a list...-->
+                  <p class="col-xs-2"><%=post.formatted_date%></p><%=post.linked_title%> <!-- would have made more sense as a list...-->
                 </div>
               </div>
               <% last_iter_year = current_year %>
