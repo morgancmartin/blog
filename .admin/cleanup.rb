@@ -10,10 +10,10 @@ end
 
 ## Default files to not be deleted apon cleanup
 def default_files
-  %w(. .. .git .methods.rb bootstrap compile.rb css posts
+  %w(. .. .git .methods.rb bootstrap generate css posts
      defaults.yml fonts index.html less README.md _templates
      methods.rb partial_methods.rb aboutme.html .admin .compile.rb
-     .git post.rb)
+     .git post.rb code.rb)
 end
 
 ## Files that are optionally deleted apon cleanup

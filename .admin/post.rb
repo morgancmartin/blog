@@ -1,7 +1,8 @@
+require_relative 'methods'
 ## Post Object Model Class
 class Post
   attr_reader :filename, :file_contents, :title, :date, :year, :linked_title,
-              :formatted_date
+              :formatted_date, :contents_w_code
   def initialize(filename)
     @filename = filename
     @file_contents = post_file_contents
@@ -10,11 +11,13 @@ class Post
     @year = post_year
     @linked_title = link_title_to_article
     @formatted_date = format_date
+    @contents_w_code = replace_code_blocks(@file_contents)
   end
 
   def preview(sub_index)
     contents = linked_header_contents(sub_index)
-    shorten_post_contents(contents)
+    contents = shorten_post_contents(contents)
+    replace_code_blocks(contents)
   end
 
   private
@@ -76,6 +79,24 @@ class Post
     chars.pop(4).join('').to_i
   end
 
+  def replace_code_blocks(contents)
+    info = find_post_content_block(contents, '<p class="code">', '</p>')
+    while info
+      formatted_block = pygment_code_block(info[:block])
+      contents = contents.split("\n")
+      contents[info[:front]..info[:back]] = formatted_block
+      contents = contents.join("\n")
+      info = find_post_content_block(contents, '<p class="code">', '</p>')
+    end
+    contents
+  end
+
+  def pygment_code_block(block)
+    write_data block, 'code.rb', false
+    system 'pygmentize -o block.html code.rb'
+    File.open('block.html', 'r').read
+  end
+
   ## Finds a line starting with given "match" string.
   ## Removes html "match" length from front of line and
   ## html "close_length" from end of line.
@@ -90,5 +111,26 @@ class Post
       return chars.join('')
     end
     false
+  end
+
+  def find_post_content_block(file_contents, match_front, match_end)
+    lines = file_contents.split("\n")
+    length = (match_front.length - 1)
+    front = nil
+    back = nil
+    lines.each_with_index do |line, index|
+      next unless line[0..length] == match_front
+      front = index
+      break
+    end
+    length = (match_end.length - 1)
+    lines.each_with_index do |line, index|
+      next unless line[0..length] == match_end
+      back = index
+      break
+    end
+    block = lines[(front + 1)..(back - 1)].join("\n") if front && back
+    info = { front: front, back: back, block: block }
+    front && back ? info : false
   end
 end

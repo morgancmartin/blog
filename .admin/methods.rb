@@ -6,15 +6,15 @@ require 'yaml'
 ## Writes a data object to a given location for use in views
 ## NOTE: Data is never written anywhere besides main folder
 ## This needs refactoring.
-def write_data(data, loc)
+def write_data(data, loc, yaml=true)
   f = File.open(loc, 'w+')
-  f.puts(YAML.dump(data))
+  yaml ? f.puts(YAML.dump(data)) : f.puts(data)
   f.rewind
 end
 
 ## Reads data object and defaults file from main folder for use in view
-def read_data
-  data = YAML.load(IO.read('data'))
+def read_data file='data'
+  data = YAML.load(IO.read(file))
   defaults = YAML.load(IO.read('defaults.yml'))
   defaults.merge(data)
 end
@@ -34,7 +34,7 @@ end
 
 ## Compile less file "styles.less"
 def compile_less
-  system 'lessc less/styles.less css/styles.css'
+  system 'lessc -s less/styles.less css/styles.css'
 end
 
 ## Returns a string specifying stylesheet locations relative to a file's
@@ -47,14 +47,14 @@ end
 ## a "sub_file" or file that is located one level below the main
 ## "blog" folder
 def sub_file_stylesheet_locs
-  '<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet"> '
 end
 
 ## Returns a string specifying stylesheet locations relative to
 ## the main "blog" folder
 def main_file_stylesheet_locs
-  '    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  '    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">'
 end
 
