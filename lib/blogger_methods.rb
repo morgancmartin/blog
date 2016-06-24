@@ -11,6 +11,12 @@ module BloggerMethods
     f.rewind
   end
 
+  ##Generates default data... could use refactoring
+  def generate_data
+    data = { posts: read_posts }
+    write_data(data, 'data')
+  end
+
   ## Reads data object and defaults file from main folder for use in view
   def read_data file='data'
     data = YAML.load(IO.read(file))
@@ -67,7 +73,8 @@ module BloggerMethods
   end
 
   ## Create partials with type according to "sub_file"
-  def create_partials(sub_file, data)
+  def create_partials(sub_file, data={})
+    data[:sub_file] = true if sub_file
     write_data data, 'data'
     if sub_file
       system 'erb _templates/_header.html.erb > sub_file_header.html'
@@ -79,13 +86,13 @@ module BloggerMethods
   end
 
   ## Gets a path to header depending on whether view is a sub_file
-  def get_header_path(sub_index)
-    sub_index ? 'sub_file_header.html' : 'header.html'
+  def get_header_path(sub_file)
+    sub_file ? 'sub_file_header.html' : 'header.html'
   end
 
   ## Gets a path to footer depending on whether view is a sub_file
-  def get_footer_path(sub_index)
-    sub_index ? 'sub_file_footer.html' : 'footer.html'
+  def get_footer_path(sub_file)
+    sub_file ? 'sub_file_footer.html' : 'footer.html'
   end
 
   ## Constructs a file path for a file. If it's a sub file it

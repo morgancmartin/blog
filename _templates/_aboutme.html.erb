@@ -1,8 +1,6 @@
 <% require "yaml" %>
 <% require_relative "../lib/modules" %>
 <% @data = read_data %>
-<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
-<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +18,15 @@
   </head>
   <body class="container-fluid">
     <div id="holder">
-      <%= @header %>
+      <%= @data[:header] %>
       <div id="body" class="row">
         <div class="col-xs-10 col-xs-offset-2">
           <section class="aboutme-section">
             <h1>a little about me:</h1>
             <p>I am a fullstack web developer</p>
             <p>I am currently looking for employment in the SF Bay Area</p>
-            <p>I think Lisp is a really cool languageand I want to write my own sometime</p>
-            <p>I want to move into machine learning and data science someday</p>
+            <p>I think Lisp is a really cool language and I intend to write my own sometime</p>
+            <p>I want to move into machine learning and data science eventually</p>
           </section>
           <section class="contact-section">
             <h1>let's get in touch:</h1>
@@ -40,7 +38,7 @@
           </section>
         </div>
       </div>
-      <%= @footer %>
+      <%= @data[:footer] %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

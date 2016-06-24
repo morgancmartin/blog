@@ -2,6 +2,7 @@
 require_relative 'lib/modules'
 clean_up pre_compile_clean_options
 compile_less
+generate_data
 generate_articles
 construct_archives
 create_aboutme

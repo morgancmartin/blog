@@ -2,8 +2,12 @@
 module AboutMethods
   ## Creates the aboutme page
   def create_aboutme
-    data = { posts: read_posts, sub_file: false }
-    create_partials false, data
+    create_partials(false)
+    header = read_file(get_header_path(false))
+    footer = read_file(get_footer_path(false))
+    data = { posts: read_posts, sub_file: false, header: header,
+             footer: footer }
+    write_data(data, 'data')
     system 'erb _templates/_aboutme.html.erb > aboutme.html'
   end
 

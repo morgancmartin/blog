@@ -1,0 +1,84 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+     <link href="../css/styles.css" rel="stylesheet">
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      
+
+
+      <header class="row">
+        <div class="accent-bar col-xs-12"></div>
+        <div class="col-xs-6">
+          <div class="nav-item col-xs-11 col-xs-offset-1">
+            <a href=" http://morganmart.in ">Morgan</a>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="col-xs-6 col-xs-offset-5">
+            <div class="nav-item col-xs-3 col-xs-offset-5">
+              <a href=" ../archives.html ">Archives</a>
+            </div>
+            <div class="nav-item col-xs-3 col-xs-offset-1">
+              <a href=" ../aboutme.html">About</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 hr-container">
+          <hr>
+        </div>
+      </header>
+
+      <div id="body" class="row">
+        <div class="col-xs-7 col-xs-offset-3">
+          <section class="article-container"><h1>Chess</h1>
+<p class="date">March 1, 2016</p>
+<p>I’ve recently re-tackled the Command Line Chess project at the end of the Learn Ruby track over at The Odin Project. Here’s [sic] the post that chronicled my first go at it in May of last year. On first glance, I thought it would be fairly straightforward, but as it turned out I underestimated the complexity of the ancient game. If memory serves (I was new to version control at the time, so no code) the checkmate? method is what derailed me. I had some weird side effects in my code that made me decide that it would probably be best if I just started back at the drawing board, but I ended up getting bored with it and moving onto something different. I’m happy to announce, however, that I’ve got my first working version up and running today!</p>
+<p>I’ve yet to implement En Passant and Castling, but I’ve got the majority of basic functionality finished up. Which isn’t to say I haven’t had my fair share of problems with the little program, because I have. I’ve racked up a fair number of hours over the past few days to get the program to a place where I’d be happy with calling it “most of the way there.” Along the way, I’ve started to realize why things like Test Driven Development and Object Oriented Programming exist, because I’ve often completely or at least partially ignored their pleas of wisdom and paid the price. Essentially I just hacked away at the program and repeatedly ran and re-ran it in my terminal until finishing up whatever method I happened to be working on. And it got the program to where it is now, but not without a couple of headaches.</p>
+<p>I think my biggest problem with my first attempt at the program last year was that I hadn’t much discipline with coding and often ignored some basic tenets of OOP, like maintaining methods without weird and unnatural side effects. Throwing things together haphazardly can work in the short term but it often compounds over time until your code starts to smell really bad. I’ve cut down on this habit enough this go around that it at least works, but I’m still not happy with the way my code looks. Frankly, it’s gross looking and smells like four day old tuna surprise, so I’m going to go back and refactor in a few days time.</p>
+<p>However now that I feel that I’ve got a handle on Ruby, I’m going to begin learning some new topics of interest. You see I’ve decided to learn the bare minimum to get a decent looking portfolio website up and running. So that means Bootstrap for the CSS, and Javascript/jQuery for the client side functionality. I haven’t got any experience with Bootstrap, but from what I’ve seen in a couple of introductory videos, it’s fairly straightforward. As for Javascript and jQuery, I have a bare bones understanding that I’ll fill out over the next few days.</p>
+<p>Once I have my site up, I want to port my newly finished Chess program over, wave my magic Javascript wand and hopefully get an in-browser, drag and drop version up and running. Even though I’ve done a lot of the heavy-logic oriented thinking (and what I assume is the majority of the work) in this initial version of chess, I’m most excited to get it into the browser because it will be my first taste of “user-friendly” software. Once I’ve got it finished, it’ll be accessible by anyone on the internet (thanks to Heroku) and will be simple enough to play (thanks to JS) that your grandmother could (hopefully) play it. Which is awesome, because it means I can share my work with essentially anyone, instead of bothering my brother with an ugly looking CLI chess program.</p>
+<p>So yeah, I’m glad to be back posting on my blog.  I’m *really* glad to be back coding. I’ve missed Ruby and even more I’ve missed the feeling of cramming new knowledge into my head.</p>
+<p>Here’s to not missing that feeling ever again.</p>
+</section>
+        </div>
+      </div>
+      
+
+
+
+
+      <footer class="row">
+        <div class="col-xs-12 hr-container">
+          <hr class="col-xs-12">
+        </div>
+        <div class="col-xs-6">
+          <div class="github-link col-xs-5 col-xs-offset-1">
+            <a href=https://github.com/morgancmartin>
+              <img src="https://github.com/favicon.ico" class="git-logo"></img>
+              morgancmartin
+            </a>
+          </div>
+        </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

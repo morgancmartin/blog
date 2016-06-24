@@ -1,0 +1,101 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+     <link href="../css/styles.css" rel="stylesheet">
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      
+
+
+      <header class="row">
+        <div class="accent-bar col-xs-12"></div>
+        <div class="col-xs-6">
+          <div class="nav-item col-xs-11 col-xs-offset-1">
+            <a href=" http://morganmart.in ">Morgan</a>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="col-xs-6 col-xs-offset-5">
+            <div class="nav-item col-xs-3 col-xs-offset-5">
+              <a href=" ../archives.html ">Archives</a>
+            </div>
+            <div class="nav-item col-xs-3 col-xs-offset-1">
+              <a href=" ../aboutme.html">About</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 hr-container">
+          <hr>
+        </div>
+      </header>
+
+      <div id="body" class="row">
+        <div class="col-xs-7 col-xs-offset-3">
+          <section class="article-container"><h1>A Quick Guide to Creating a Personal Website</h1>
+<h2>From Html to Hosting</h2>
+<p class="date">June 10, 2016</p>
+<p>Have you ever stumbled upon someone’s awesome looking personal website, and thought, “Wow, that looks great! I really need to get around to making my own sometime…?” Well it’s your lucky day, because I’m here to walk you through the process from start to finish, and it should only take you about a day to do.</p>
+<p>What, still not convinced? Okay, let’s review some of the reasons why having a personal website is such a swell idea. For one, it’s your own personal platform, from which you can touch on any topic you like. For instance, say you like football. You can make a blog about your favorite players. Or you could go a little further, and host your own fantasy football application that you wrote. The cool part is that no matter what you can dream up, (and find/build) you can host on the world wide web where others can find it.</p>
+<p>Of course, most of us just want one to represent ourselves on the web because it provides the perfect medium for potential business associates or job recruiters. And who doesn’t want a job?</p>
+<h2>Building a Website</h2>
+<p>So you’re convinced that you need one, but you’re not sure how to go about it? I’ve got you covered. There are a ton of different options for creating your own webpage, like Wordpress, Wix and a host of others. Those are all great, especially if you’re not especially tech savvy, but for the purposes of this article, I will assume you know the basics of HTML and CSS.</p>
+<p>Knowing HTML/CSS is great, it makes you feel like you’re Neo seeing the matrix for the first time. However, we all know that plain HTML/CSS can be a hassle. Enter Bootstrap and Start Bootstrap. The former is a HTML/CSS framework created by Twitter’s developers that was released to the public some years back. It’s a godsend when you want to get something up and running that looks good without taking too much time to get it done. Start Bootstrap takes things one step further by providing some templates that make use of the Bootstrap framework.</p>
+<p>Both of these resources are very easy to understand and make use of in a relatively short amount of time if you have a history with HTML/CSS. So hurry up and stop by their website, and get a quick and dirty version of your website put together. Once you’ve got something cobbled together, you’re ready for the next step — domain registry and hosting.</p>
+<h2>Domain Registry and Hosting with Gandi and AWS</h2>
+<p>There are just as many options for hosting a website as there are for creating one. For instance, Github offers a service called Github Pages that will serve one of your repositories up as a web page. This service is very easy to setup and use in a pinch, but it has a couple of drawbacks. One is that your page cannot run server-side code, meaning no (truly) dynamic content. The other is that your URL will have “.github.io” at the end of it. We’re shooting for a truly professional-looking site, so we’re going to pass on Github Pages this time.</p>
+<p>Since a custom URL is a necessity, our only option is to register a domain. Of course, this isn’t free. A domain will typically cost you around ten dollars per year. If you’re serious about having a personal website like me however, this is peanuts.</p>
+<p>Again, there are many options to choose from at this step. You have to register a domain with a, you guessed it, domain registrar. There are many opinions about who constitutes the best registrar, but almost all of them say that it is not GoDaddy. Therefore, I went with Gandi, and I’ve been very happy with my experience. If you’re looking for the easiest, most direct path forward, you should also choose Gandi. Plus, how could anyone go wrong with something only one letter off from Gandhi?</p>
+<p>Whichever registrar you choose to go with, you’ll probably be pretty surprised at the sheer amount of different domain extensions there are to choose from. I know I was. There’s plenty of room for creativity here, just try not to go hog-wild. $600.00 is a bit much to spend on a domain at this point (unless you’re Google) and any future employers might not be impressed by a .ninja domain.</p>
+<p>Once you’ve registered your domain, you’re ready for hosting. Your registrar probably provides hosting services, but I opted for Amazon Web Services instead. AWS is worthy of another post all to itself, but suffice to say that it is completely capable (and it’s free for the first year!) Dealing with it is also comparable to battling some sort of multi-headed-hydra-monster because of the ridiculous amount of services it encompasses and is much of the reason why I decided to make this post.</p>
+<p>Okay, so for all my talk of monsters, AWS’s documentation is surprisingly easy to follow. Knowing which documentation to follow can be the difficult part, so that’s what I’ll help with. Here’s what you need to do:</p>
+<ol>
+  <li>Go through the “Setting Up to Host a Static Website on AWS” tutorial. This tutorial runs you through creating your account and setting up some necessary preliminary system-admin-type stuff. It’s straightforward and easy to do.</li>
+  <li>Next, “Create the Buckets for Your Website.”</li>
+  <li>Now you need to “Deploy Your Website.” DANGER WILL ROBINSON, THE TUTORIAL IS INCORRECT. For whatever reason, under the “Set Up a Redirect” section, the tutorial has you redirect your second bucket to your equivalent of “example.com.s3-website-us-east-1.amazonaws.com” Instead, redirect to your root domain e.g. “example.com” If you do it the way described in the tutorial, your URL will display in the oh-so-annoying “example.com.s3-website-us-east-1.amazonaws.com” format, and you’ll probably have no idea why.</li>
+  <li>Next, “Associate a Domain Name with Your Website.” Note that Amazon charges .50 cents per month for each Hosted Zone you maintain.</li>
+  <li>You’re done! Go eat some cake, you’ve earned it.</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Whew, that was a lot of work! It’s very worth it though, as I’m sure you’ll find during your time as a webmaster (it’s a thing.) I hope you found this tutorial to be helpful, and that you have an optimally functioning website somewhere out there on the web. If you’d like to see more articles like this one, I post here on Medium every other Friday.</p>
+</section>
+        </div>
+      </div>
+      
+
+
+
+
+      <footer class="row">
+        <div class="col-xs-12 hr-container">
+          <hr class="col-xs-12">
+        </div>
+        <div class="col-xs-6">
+          <div class="github-link col-xs-5 col-xs-offset-1">
+            <a href=https://github.com/morgancmartin>
+              <img src="https://github.com/favicon.ico" class="git-logo"></img>
+              morgancmartin
+            </a>
+          </div>
+        </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

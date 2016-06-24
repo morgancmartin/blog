@@ -7,7 +7,10 @@ require_relative 'index_methods'
 require_relative 'pagination'
 require_relative 'post'
 
-
 include AboutMethods
 include ArchiveMethods
+include ArticleMethods
+include BloggerMethods
 include CleanUpMethods
+include IndexMethods
+include PaginationMethods

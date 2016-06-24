@@ -1,8 +1,5 @@
-<% require "yaml" %>
-<% require_relative "../.admin/methods" %>
+<% require_relative "../lib/modules" %>
 <% @data = read_data %>
-<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
-<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +16,7 @@
   </head>
   <body class="container-fluid">
     <div id="holder">
-      <%= @header %>
+      <%= @data[:header] %>
       <div id="body" class="row">
         <div class="col-xs-10 col-xs-offset-2">
           <section class="archives-section">
@@ -37,7 +34,7 @@
           </section>
         </div>
       </div>
-      <%= @footer %>
+      <%= @data[:footer] %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

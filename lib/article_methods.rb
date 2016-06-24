@@ -8,10 +8,10 @@ module ArticleMethods
 
   ## Generates an article page for a supplied post object
   def generate_article(post)
+    create_partials true, read_data
     header = read_file(get_header_path(true))
     footer = read_file(get_footer_path(true))
     data = { post: post, sub_file: true, header: header, footer: footer }
-    create_partials true, data
     write_data data, 'data'
     system "erb _templates/_article.html.erb > articles/#{post.filename}"
   end
