@@ -1,6 +1,6 @@
-require_relative 'methods'
 ## Post Object Model Class
 class Post
+  require_relative 'blogger_methods'
   attr_reader :filename, :file_contents, :title, :date, :year, :linked_title,
               :formatted_date, :contents_w_code
   def initialize(filename)

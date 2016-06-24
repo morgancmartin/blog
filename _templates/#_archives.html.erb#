@@ -1,6 +1,8 @@
 <% require "yaml" %>
 <% require_relative "../lib/modules" %>
 <% @data = read_data %>
+<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
+<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,19 +13,31 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Morgan</title>
     <!-- Bootstrap -->
-    <%= get_stylesheet_loc @data[:sub_file] %>
+    <%= main_file_stylesheet_locs %>
     <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
     <!-- removed html5 shim for IE cuz IE needs to die-->
   </head>
   <body class="container-fluid">
     <div id="holder">
-      <%= @data[:header] %>
+      <%= @header %>
       <div id="body" class="row">
-        <div class="col-xs-7 col-xs-offset-3">
-          <section class="article-container"><%=@data[:post].contents_w_code%></section>
+        <div class="col-xs-10 col-xs-offset-2">
+          <section class="archives-section">
+            <% last_iter_year = Time.now.year + 1%>
+            <% @data[:posts].each do |post| %>
+              <% current_year = post.year %>
+              <h1 class="year-header"><%=archives_year_header current_year, last_iter_year%></h1>
+              <div class="row">
+                <div class="col-xs-7 archive-entry">
+                  <p class="col-xs-2"><%=post.formatted_date%></p><%=post.linked_title%> <!-- would have made more sense as a list...-->
+                </div>
+              </div>
+              <% last_iter_year = current_year %>
+            <% end %>
+          </section>
         </div>
       </div>
-      <%= @data[:footer] %>
+      <%= @footer %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

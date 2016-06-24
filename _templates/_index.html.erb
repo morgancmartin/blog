@@ -1,5 +1,5 @@
 <% require "yaml" %>
-<% require_relative "../.admin/methods" %>
+<% require_relative "../lib/modules" %>
 <% @data = read_data %>
 <% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
 <% @start = @data[:start] %>
